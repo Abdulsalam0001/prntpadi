@@ -1,64 +1,65 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardContent, IonButton, IonBadge, IonIcon } from '@ionic/react';
-import { flashOutline, starOutline } from 'ionicons/icons';
+// src/pages/Home.tsx - Updated with PrintPadi Website Styles
+import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardContent, IonButton, IonBadge, IonIcon } from '@ionic/react';
+import { flashOutline, starOutline, chevronForwardOutline } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import '../theme/printpadi.css';  // Import your brand styles
 
-// Your actual PrintPadi products
 const featuredProducts = [
-  { id: 1, name: 'Premium Business Cards - Matte Finish', price: '₦800', orders: '2.5k+', rating: 4.5, minOrder: 10 },
-  { id: 2, name: 'Premium Mugs', price: '₦800', orders: '1.8k+', rating: 4.5, minOrder: 10 },
-  { id: 3, name: 'Premium Cups', price: '₦800', orders: '1.2k+', rating: 4.5, minOrder: 10 },
+  { id: 1, name: 'Premium Business Cards', subtext: 'Matte Finish', price: '₦800', orders: '2.5k+', rating: 4.5, minOrder: 10 },
+  { id: 2, name: 'Premium Mugs', subtext: 'Custom Prints', price: '₦800', orders: '1.8k+', rating: 4.5, minOrder: 10 },
+  { id: 3, name: 'Premium Cups', subtext: 'Bulk Orders', price: '₦800', orders: '1.2k+', rating: 4.5, minOrder: 10 },
 ];
 
 const Home: React.FC = () => {
   const history = useHistory();
-  const [activeSegment, setActiveSegment] = useState('gifts');
 
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar color="primary">
-          <IonTitle>PrintPadi</IonTitle>
+        <IonToolbar>
+          <div slot="start" style={{ padding: '8px' }}>
+            <img src="/assets/logo.svg" alt="PrintPadi" style={{ height: '32px' }} />
+          </div>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        {/* Hero Section - Your exact offer */}
-        <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          borderRadius: '16px',
-          padding: '30px 20px',
-          textAlign: 'center',
-          marginBottom: '24px',
-          color: 'white'
-        }}>
-          <h1 style={{ fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '12px' }}>
-            Grab Up to 50% Off
-          </h1>
-          <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>
-            On Your First Bulk Purchase
-          </p>
+      
+      <IonContent className="ion-padding" style={{ '--background': '#F8F9FA' }}>
+        {/* Hero Section - Direct copy of your website's style */}
+        <div className="printpadi-hero">
+          <h1>Grab Up to 50% Off</h1>
+          <p>On Your First Bulk Purchase</p>
           <IonButton 
             expand="block" 
-            color="warning" 
+            style={{ 
+              '--background': 'var(--printpadi-accent)', 
+              '--color': 'var(--printpadi-dark)',
+              fontWeight: 800,
+              fontSize: '16px'
+            }}
             size="large"
             onClick={() => history.push('/custom-printing')}
-            style={{ fontWeight: 'bold' }}
           >
             <IonIcon icon={flashOutline} slot="start" />
             Shop Flash Sale Now
           </IonButton>
         </div>
 
-        {/* Categories */}
+        {/* Category Filter - Matching your website's UI */}
         <div style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontWeight: 'bold', marginBottom: '16px' }}>Explore Products</h2>
-          <div style={{ display: 'flex', gap: '10px', overflow: 'auto', padding: '4px 0' }}>
-            {['All', 'Gifts', 'Custom Printing', 'Business Cards'].map(cat => (
+          <div style={{ display: 'flex', gap: '8px', overflow: 'auto', padding: '4px 0' }}>
+            {['Gift Shop Deals', 'Custom Printing', 'Business Cards', 'All Products'].map(cat => (
               <IonButton 
                 key={cat}
-                fill={activeSegment === cat.toLowerCase() ? 'solid' : 'outline'}
+                fill="outline"
                 size="small"
-                onClick={() => setActiveSegment(cat.toLowerCase())}
+                className="printpadi-category-btn"
+                style={{ 
+                  '--border-color': 'var(--printpadi-light)',
+                  '--color': 'var(--printpadi-dark)',
+                  whiteSpace: 'nowrap'
+                }}
+                onClick={() => history.push('/products')}
               >
                 {cat}
               </IonButton>
@@ -66,68 +67,64 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Featured Products */}
-        <h2 style={{ fontWeight: 'bold', marginBottom: '16px' }}>Featured Deals</h2>
+        {/* Products Section Title */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+          <h2 style={{ fontWeight: 700, fontSize: '20px', margin: 0 }}>Explore Products</h2>
+          <IonButton fill="clear" size="small" onClick={() => history.push('/products')}>
+            View All
+            <IonIcon icon={chevronForwardOutline} slot="end" />
+          </IonButton>
+        </div>
+
+        {/* Product Cards - Your website's exact card style */}
         {featuredProducts.map(product => (
-          <IonCard key={product.id} style={{ marginBottom: '16px' }}>
-            <div style={{
-              height: '180px',
-              background: `linear-gradient(45deg, #ff6b6b, #4ecdc4)`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '1.1rem'
-            }}>
+          <IonCard key={product.id} className="printpadi-product-card" style={{ marginBottom: '16px' }}>
+            <div className="printpadi-product-image">
               {product.name.replace('Premium ', '')}
             </div>
             <IonCardContent>
-              <h3 style={{ fontWeight: 'bold', marginBottom: '8px' }}>{product.name}</h3>
+              <h3 style={{ fontWeight: 700, margin: '0 0 4px', fontSize: '16px' }}>
+                {product.name}
+              </h3>
+              <p style={{ color: 'var(--printpadi-gray)', margin: '0 0 12px', fontSize: '14px' }}>
+                {product.subtext}
+              </p>
+              
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <span style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4a4a4a' }}>
-                    {product.price}
-                  </span>
-                  <div style={{ fontSize: '0.8rem', color: '#666' }}>
-                    MOQ: {product.minOrder} pcs
-                  </div>
+                  <span className="printpadi-price">{product.price}</span>
+                  <div className="printpadi-moq">MOQ: {product.minOrder} Pcs</div>
                 </div>
-                <div>
-                  <IonBadge color="success">
+                <div style={{ textAlign: 'right' }}>
+                  <span className="printpadi-rating-badge">
                     <IonIcon icon={starOutline} /> {product.rating}
-                  </IonBadge>
-                  <div style={{ fontSize: '0.7rem', color: '#666', marginTop: '4px' }}>
-                    {product.orders} orders
-                  </div>
+                  </span>
+                  <div className="printpadi-orders">{product.orders} orders</div>
                 </div>
               </div>
+              
               <IonButton 
                 expand="full" 
                 size="small" 
-                style={{ marginTop: '12px' }}
+                style={{ marginTop: '12px', '--background': 'var(--printpadi-primary)' }}
                 onClick={() => history.push('/products')}
               >
-                View Details
+                Shop Now
               </IonButton>
             </IonCardContent>
           </IonCard>
         ))}
 
-        {/* Flash Sale Banner */}
-        <IonCard style={{
-          background: '#ff6b6b',
-          color: 'white',
-          textAlign: 'center',
-          padding: '20px'
-        }}>
-          <h2>Flash Sale!</h2>
-          <p style={{ fontSize: '1.1rem', margin: '10px 0' }}>
+        {/* Flash Sale Card - Red accent like your site */}
+        <div className="printpadi-flash-sale">
+          <h2 style={{ margin: '0 0 8px', fontWeight: 800 }}>⚡ Flash Sale!</h2>
+          <p style={{ fontSize: '18px', margin: '8px 0', fontWeight: 600 }}>
             500 business cards from ₦4,000
           </p>
-          <p style={{ fontSize: '0.9rem', opacity: '0.9' }}>
+          <p style={{ fontSize: '14px', opacity: 0.9, margin: '0' }}>
             Premium matte finish included
           </p>
-        </IonCard>
+        </div>
       </IonContent>
     </IonPage>
   );

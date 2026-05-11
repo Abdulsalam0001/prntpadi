@@ -1,0 +1,162 @@
+/* PrintPadi Brand Styles - Extracted from your website */
+
+:root {
+  /* Brand Colors from your site */
+  --printpadi-primary: #6C5CE7;
+  --printpadi-primary-dark: #5A4BD1;
+  --printpadi-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --printpadi-accent: #FFD93D;
+  --printpadi-success: #00B894;
+  --printpadi-danger: #FF6B6B;
+  --printpadi-warning: #FDCB6E;
+  --printpadi-dark: #2D3436;
+  --printpadi-gray: #636E72;
+  --printpadi-light: #DFE6E9;
+  --printpadi-white: #FFFFFF;
+  
+  /* Typography - Matching your site's clean look */
+  --printpadi-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --printpadi-heading-weight: 700;
+  --printpadi-body-weight: 400;
+}
+
+/* Global App Styling - Matching your website */
+body {
+  font-family: var(--printpadi-font);
+  background: #F8F9FA;
+}
+
+/* Hero Section - Your exact gradient style */
+.printpadi-hero {
+  background: var(--printpadi-gradient);
+  border-radius: 16px;
+  padding: 32px 24px;
+  color: white;
+  text-align: center;
+  margin: 16px 0 24px;
+  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+}
+
+.printpadi-hero h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.printpadi-hero p {
+  font-size: 16px;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+/* Product Cards - Matching your site's card design */
+.printpadi-product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.printpadi-product-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.printpadi-product-image {
+  height: 180px;
+  background: linear-gradient(45deg, #dfe6e9, #b2bec3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #636e72;
+}
+
+/* Price Display - Bold like your website */
+.printpadi-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--printpadi-dark);
+}
+
+.printpadi-price-range {
+  color: var(--printpadi-primary);
+  font-weight: 600;
+}
+
+/* Star Ratings - Green badges like your site */
+.printpadi-rating-badge {
+  background: var(--printpadi-success);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Flash Sale Badge - Red accent */
+.printpadi-flash-sale {
+  background: var(--printpadi-danger);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Category Buttons - Matching your site's filters */
+.printpadi-category-btn {
+  border-radius: 20px;
+  font-weight: 500;
+  text-transform: none;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+/* MOQ Label - Small gray text */
+.printpadi-moq {
+  font-size: 12px;
+  color: var(--printpadi-gray);
+  font-weight: 500;
+}
+
+/* Order Count */
+.printpadi-orders {
+  font-size: 12px;
+  color: var(--printpadi-gray);
+}
+
+/* Ionic Component Overrides to Match Your Site */
+ion-toolbar {
+  --background: var(--printpadi-primary);
+  --color: white;
+}
+
+ion-tab-bar {
+  --background: white;
+  --border: 1px solid var(--printpadi-light);
+}
+
+ion-tab-button {
+  --color-selected: var(--printpadi-primary);
+}
+
+ion-button {
+  --border-radius: 8px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+ion-badge {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  font-weight: 600;
+}
+
+ion-searchbar {
+  --border-radius: 12px;
+  --background: white;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
