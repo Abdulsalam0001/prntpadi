@@ -7,9 +7,8 @@ const Account: React.FC = () => (
       <IonToolbar color="primary"><IonTitle>Account</IonTitle></IonToolbar>
     </IonHeader>
     <IonContent className="ion-padding">
-      <h2>Welcome to PrintPadi</h2>
+      <h2>Welcome</h2>
       <IonButton expand="block">Sign In</IonButton>
-      <IonButton expand="block" fill="outline">Create Account</IonButton>
     </IonContent>
   </IonPage>
 );

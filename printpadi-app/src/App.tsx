@@ -1,7 +1,13 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
-  IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar,
-  IonTabButton, IonTabs, setupIonicReact
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { homeOutline, gridOutline, colorWandOutline, cartOutline, personOutline } from 'ionicons/icons';
@@ -31,18 +37,22 @@ const App: React.FC = () => (
             <IonIcon icon={homeOutline} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
+          
           <IonTabButton tab="products" href="/products">
             <IonIcon icon={gridOutline} />
             <IonLabel>Products</IonLabel>
           </IonTabButton>
+          
           <IonTabButton tab="custom-printing" href="/custom-printing">
             <IonIcon icon={colorWandOutline} />
             <IonLabel>Custom</IonLabel>
           </IonTabButton>
+          
           <IonTabButton tab="cart" href="/cart">
             <IonIcon icon={cartOutline} />
             <IonLabel>Cart</IonLabel>
           </IonTabButton>
+          
           <IonTabButton tab="account" href="/account">
             <IonIcon icon={personOutline} />
             <IonLabel>Account</IonLabel>

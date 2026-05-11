@@ -7,8 +7,8 @@ const Cart: React.FC = () => (
       <IonToolbar color="primary"><IonTitle>Cart</IonTitle></IonToolbar>
     </IonHeader>
     <IonContent className="ion-padding">
-      <h2>Your Cart is Empty</h2>
-      <p>Start shopping to add items to your cart</p>
+      <h2>Your Cart</h2>
+      <p>Your cart is empty</p>
     </IonContent>
   </IonPage>
 );
