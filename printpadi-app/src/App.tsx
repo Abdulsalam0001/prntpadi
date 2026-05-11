@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { homeOutline, gridOutline, colorWandOutline, cartOutline, personOutline } from 'ionicons/icons';
+import Splash from './pages/Splash';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import CustomPrinting from './pages/CustomPrinting';
@@ -22,12 +23,6 @@ import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
 
 setupIonicReact({
   mode: 'ios'
@@ -38,12 +33,18 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          {/* Splash screen is shown first */}
+          <Route exact path="/splash" component={Splash} />
+          
+          {/* Main tab pages */}
           <Route exact path="/home" component={Home} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/custom-printing" component={CustomPrinting} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/account" component={Account} />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          
+          {/* Default redirect to splash */}
+          <Route exact path="/" render={() => <Redirect to="/splash" />} />
         </IonRouterOutlet>
         
         <IonTabBar slot="bottom" style={{
