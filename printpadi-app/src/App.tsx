@@ -17,62 +17,68 @@ import CustomPrinting from './pages/CustomPrinting';
 import Cart from './pages/Cart';
 import Account from './pages/Account';
 
-/* Core CSS required for Ionic components to work properly */
+/* Core CSS required for Ionic components */
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
 
 setupIonicReact({
-  mode: 'ios' // or 'md' for material design
+  mode: 'ios'
 });
 
-const App: React.FC = () => {
-  return (
-    <IonApp>
-      <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/products" component={Products} />
-            <Route exact path="/custom-printing" component={CustomPrinting} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/account" component={Account} />
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
-          </IonRouterOutlet>
+const App: React.FC = () => (
+  <IonApp>
+    <IonReactRouter>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/custom-printing" component={CustomPrinting} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/" render={() => <Redirect to="/home" />} />
+        </IonRouterOutlet>
+        
+        <IonTabBar slot="bottom" style={{
+          '--background': 'white',
+          '--border': '1px solid #f0f0f0',
+          padding: '4px 0'
+        }}>
+          <IonTabButton tab="home" href="/home" style={{ '--color-selected': '#667eea' }}>
+            <IonIcon icon={homeOutline} />
+            <IonLabel style={{ fontSize: '11px' }}>Home</IonLabel>
+          </IonTabButton>
           
-          <IonTabBar slot="bottom">
-            <IonTabButton tab="home" href="/home">
-              <IonIcon icon={homeOutline} />
-              <IonLabel>Home</IonLabel>
-            </IonTabButton>
-            
-            <IonTabButton tab="products" href="/products">
-              <IonIcon icon={gridOutline} />
-              <IonLabel>Products</IonLabel>
-            </IonTabButton>
-            
-            <IonTabButton tab="custom-printing" href="/custom-printing">
-              <IonIcon icon={colorWandOutline} />
-              <IonLabel>Custom</IonLabel>
-            </IonTabButton>
-            
-            <IonTabButton tab="cart" href="/cart">
-              <IonIcon icon={cartOutline} />
-              <IonLabel>Cart</IonLabel>
-            </IonTabButton>
-            
-            <IonTabButton tab="account" href="/account">
-              <IonIcon icon={personOutline} />
-              <IonLabel>Account</IonLabel>
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
-      </IonReactRouter>
-    </IonApp>
-  );
-};
+          <IonTabButton tab="products" href="/products" style={{ '--color-selected': '#667eea' }}>
+            <IonIcon icon={gridOutline} />
+            <IonLabel style={{ fontSize: '11px' }}>Products</IonLabel>
+          </IonTabButton>
+          
+          <IonTabButton tab="custom-printing" href="/custom-printing" style={{ '--color-selected': '#667eea' }}>
+            <IonIcon icon={colorWandOutline} />
+            <IonLabel style={{ fontSize: '11px' }}>Custom</IonLabel>
+          </IonTabButton>
+          
+          <IonTabButton tab="cart" href="/cart" style={{ '--color-selected': '#667eea' }}>
+            <IonIcon icon={cartOutline} />
+            <IonLabel style={{ fontSize: '11px' }}>Cart</IonLabel>
+          </IonTabButton>
+          
+          <IonTabButton tab="account" href="/account" style={{ '--color-selected': '#667eea' }}>
+            <IonIcon icon={personOutline} />
+            <IonLabel style={{ fontSize: '11px' }}>Account</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
+    </IonReactRouter>
+  </IonApp>
+);
 
 export default App;
