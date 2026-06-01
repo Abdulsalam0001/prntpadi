@@ -1,4 +1,4 @@
-import { IonPage, IonContent } from '@ionic/react';
+import { IonPage, IonContent, IonSpinner } from '@ionic/react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -6,7 +6,6 @@ const Splash: React.FC = () => {
   const history = useHistory();
 
   useEffect(() => {
-    // Quick splash, then auto-redirect
     const timer = setTimeout(() => {
       history.push('/home');
     }, 2000);
@@ -15,27 +14,45 @@ const Splash: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen>
+      <IonContent fullscreen style={{ '--background': 'white' }}>
         <div style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           height: '100vh',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: 'white',
           padding: '40px'
         }}>
+          {/* Your Logo - Black and White */}
           <img 
             src="/assets/logo.svg" 
             alt="PrintPadi" 
             style={{ 
-              width: '200px', 
-              marginBottom: '20px',
-              filter: 'brightness(0) invert(1)' // Make logo white for dark background
+              width: '180px', 
+              height: 'auto',
+              marginBottom: '40px'
             }} 
           />
-          <p style={{ color: 'white', fontSize: '18px', fontWeight: '500' }}>
-            Print Padi 
+          
+          {/* Loading Spinner - Black */}
+          <IonSpinner 
+            name="circles" 
+            style={{ 
+              width: '48px', 
+              height: '48px',
+              color: '#000000'
+            }} 
+          />
+          
+          {/* Loading Text - Black */}
+          <p style={{
+            color: '#000000',
+            fontSize: '14px',
+            marginTop: '20px',
+            fontWeight: '500'
+          }}>
+            Loading...
           </p>
         </div>
       </IonContent>
