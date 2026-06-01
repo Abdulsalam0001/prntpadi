@@ -35,7 +35,7 @@ const Splash: React.FC = () => {
             }} 
           />
           <p style={{ color: 'white', fontSize: '18px', fontWeight: '500' }}>
-            Your Print Partner
+            Print Padi 
           </p>
         </div>
       </IonContent>
